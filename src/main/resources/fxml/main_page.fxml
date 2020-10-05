@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="120.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aleksieienko.water.pipeline.system.controller.MainController">
+   <children>
+      <Button fx:id="uploadButton" layoutX="22.0" layoutY="60.0" mnemonicParsing="false" onAction="#upload" prefHeight="49.0" prefWidth="300.0" text="Upload" />
+      <Label fx:id="dataInfo" layoutX="116.0" layoutY="14.0" prefHeight="40.0" prefWidth="113.0" />
+   </children>
+</AnchorPane>
