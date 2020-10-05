@@ -34,24 +34,27 @@ public class MainController {
                 if(obj instanceof Graph){
 
                     graph = (Graph) obj;
-                    dataInfo.setText("Data is accepted!");
+                    dataInfo.setText("Pipeline is accepted!");
                     GraphDao graphDao = new GraphDao();
                     if(!graphDao.insertGraph(file.getPath())){
                         showAlert("Cannot write data to database!!!");
                     }
                 }else{
+                    if(graph.getPoints().isEmpty()) {
+                        showAlert("Pipeline is not accepted!!!");
+                    } else {
+                        FileChooser fileChooserForSave = getFileChooser("Select directory for save", true);
+                        File fileForSave;
+                        if ((fileForSave = fileChooserForSave.showSaveDialog(null)) != null) {
 
-                    FileChooser fileChooserForSave = getFileChooser("Select directory for save",true);
-                    File fileForSave;
-                    if((fileForSave = fileChooserForSave.showSaveDialog(null))!= null) {
+                            if (!fileForSave.exists()) {
 
-                        if(!fileForSave.exists()){
+                                fileForSave.createNewFile();
+                            }
 
-                            fileForSave.createNewFile();
+                            parser.write(fileForSave, (List<Question>) obj, this.graph);
+                            showResult(fileForSave);
                         }
-
-                        parser.write(fileForSave, (List<Question>) obj,this.graph);
-                        showResult(fileForSave);
                     }
                 }
 
