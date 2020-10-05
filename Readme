@@ -1,0 +1,2 @@
+Main page of application has a button, witch names update. You might press it and choose *.csv file in opened window. First time you need to choose file with pipeline system, and then you can choose file with points.
+If you chose file with point, application will calculate routes and ask you about saving results. After saving results will be opend by application.
